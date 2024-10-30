@@ -1,0 +1,1 @@
+nome, foto, curso, e-mail, lista de hobbies, lista de habilidades e uma resposta para a pergunta: *"Por que devo entrar na Include?"
