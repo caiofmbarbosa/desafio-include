@@ -11,43 +11,6 @@ import WPP from "../assets/whatsapp.png"
 import INSTA from "../assets/instagram.png"
 import GIT from "../assets/github.png"
 
-
-const StyledFooter = styled.footer`
-    position: relative;
-    left: 0;
-    width: 100%;
-    height: auto;
-    background: ${themes.colors.cinzaFantasma};
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFF;
-    box-shadow: ${themes.colors.laranjaAbobora} 0px 7px 29px 0px;
-
-    img.icon-click,
-    img.icon {
-        width: 24px;
-        height: 24px;
-        transition: transform .3s ease;
-
-        &:hover {
-            transform: scale(1.1);
-
-        }
-
-    }
-
-    img.icon-click {
-        &:hover {
-            cursor: pointer;
-
-        }
-
-    }
-
-`;
-
 const StyledEmailDiv = styled.div`
     border-right: 1px solid ${themes.colors.pretoProfundo};
     padding-right: 2rem;
@@ -107,7 +70,7 @@ function Footer() {
     }
 
     return (
-        <StyledFooter>
+        <>
             <StyledEmailDiv>
                 <StyledWrapper>
                     <img 
@@ -134,7 +97,7 @@ function Footer() {
                     <img className="icon-click" src={GIT} alt="Logo do GitHub" />
                 </Link>
             </StyledSocialMedia>
-        </StyledFooter>
+        </>
     )
 }
 

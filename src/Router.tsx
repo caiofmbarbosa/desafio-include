@@ -1,15 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
-import AboutPage from "./Pages/AboutPage";
-import PostsPage from "./Pages/PostsPage";
+import LayoutPage from "./Pages/LayoutPage";
+import About from "./Components/About";
+import Posts from "./Components/Posts";
 
 const ProjectRoutes = createBrowserRouter([
   {
     path: "/",
-    element: <AboutPage />
-  },
-  {
-    path: "/posts",
-    element: <PostsPage />
+    element: <LayoutPage />,
+    children: [
+      {
+        index: true,
+        element: <About />
+      },
+      {
+        path: "/posts",
+        element: <Posts />
+      }
+    ]
   }
 ])
 

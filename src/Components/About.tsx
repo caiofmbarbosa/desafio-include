@@ -1,36 +1,8 @@
 import styled from "styled-components";
-// import themes from "../Themes/Themes";
-
-import HALOWEEN from "../assets/haloween.png";
-import CAIO from "../assets/eu.jpg";
-import FRAME from "../assets/frame.png";
 import themes from "../Themes/Themes";
 
-const StyledMain = styled.main`
-    width: 100%;
-    padding: 5rem 1rem;
-
-    position: relative;
-    z-index: 1;
-    color: white;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url(${HALOWEEN});
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        opacity: 0.35;
-        z-index: -1;
-
-    }
-    
-`;
+import CAIO from "../assets/eu.jpg";
+import FRAME from "../assets/frame.png";
 
 const StyledSection = styled.section`
     display: flex;
@@ -99,7 +71,7 @@ const StyledQuestionSection = styled.section`
 
 function About() {
     return (
-        <StyledMain>
+        <>
             <StyledSection>
                 <StyledImageDiv><img src={CAIO} alt="Foto do Caio Barbosa" /></StyledImageDiv>
                 <StyledTitle>Quem sou eu?</StyledTitle>
@@ -116,7 +88,7 @@ function About() {
                     Além disso, fazer parte de uma comunidade colaborativa e inovadora como a Include significa estar rodeado de pessoas que compartilham o mesmo interesse por tecnologia e desenvolvimento, o que me inspira e me motiva a buscar sempre melhorar. Quero contribuir com projetos reais, aprender com outros membros e participar ativamente de iniciativas que impactem positivamente a sociedade e me preparem para o mercado de trabalho.                
                 </StyledSpan>
             </StyledQuestionSection>
-        </StyledMain>
+        </>
     )
 }
 

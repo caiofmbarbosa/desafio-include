@@ -2,15 +2,6 @@ import styled from "styled-components";
 import themes from "../Themes/Themes";
 import { Link, useLocation } from "react-router-dom";
 
-import TEIA from "../assets/teia.png";
-
-const StyledHeader = styled.header`
-    background: url(${TEIA});
-    background-repeat: repeat-x;
-    background-size: cover;
-    
-`;
-
 const StyledNav = styled.nav`
     background: ${themes.colors.cinzaFantasma};
     padding: 1rem;
@@ -20,7 +11,7 @@ const StyledNav = styled.nav`
     margin: 0 auto;
     box-shadow: ${themes.colors.laranjaAbobora} 0px 0px 29px 0px;
 
-    @media (max-width: ${themes.breakpoint.mobile}) {
+    @media (max-width: ${themes.breakpoint.tablet}) {
         width: 80%;
 
     }
@@ -63,7 +54,7 @@ function Header() {
     const { pathname } = useLocation();
 
     return (
-        <StyledHeader>
+        <>
             <StyledNav>
                 <StyledUl>
                     <StyledLi $selected={pathname === "/"} >
@@ -74,7 +65,8 @@ function Header() {
                     </StyledLi>
                 </StyledUl>
             </StyledNav>
-        </StyledHeader>
+        </>
+
     )   
 }
 
