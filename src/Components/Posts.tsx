@@ -221,7 +221,7 @@ function Posts() {
                 {creating &&
                     <StyledCreatingWrapper>
                         <StyledLabel htmlFor="title">
-                            Título
+                            Título:
                             <StyledInput 
                                 id="title"
                                 type="text"
