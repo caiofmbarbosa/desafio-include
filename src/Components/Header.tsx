@@ -20,6 +20,11 @@ const StyledNav = styled.nav`
     margin: 0 auto;
     box-shadow: ${themes.colors.laranjaAbobora} 0px 0px 29px 0px;
 
+    @media (max-width: ${themes.breakpoint.mobile}) {
+        width: 80%;
+
+    }
+
 `;
 
 const StyledUl = styled.ul`

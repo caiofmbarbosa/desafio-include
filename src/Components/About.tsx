@@ -45,6 +45,11 @@ const StyledSpan = styled.span`
     width: 50%;
     color: ${themes.colors.cinzaClaro};
 
+    @media (max-width: ${themes.breakpoint.mobile}) {
+        width: 90%;
+
+    }
+
 `;
 
 const StyledImageDiv = styled.div`
@@ -79,6 +84,7 @@ const StyledImageDiv = styled.div`
 
 const StyledTitle = styled.h2`
     margin-top: 2rem;
+    text-align: center;
 
 `;
 

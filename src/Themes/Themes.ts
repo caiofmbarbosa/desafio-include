@@ -8,8 +8,18 @@ const themes = {
         pretoProfundo: "rgba(0, 0, 0, 1)",
         azulNoturno: "rgba(0, 0, 51, 1)",
         marromTerra: "rgba(51, 25, 0, 1)",
+        
         // Cor para texto:
         cinzaClaro: "rgba(204, 204, 204, 1)"
+
+    },
+    breakpoint: {
+        mobile: "768px",
+        tablet: "1024px",
+
+        // Breakpoints numéricos:
+        mobileNum: 768,
+        tabletNum: 1024
 
     }
 }
