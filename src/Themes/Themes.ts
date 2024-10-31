@@ -7,7 +7,9 @@ const themes = {
         cinzaFantasma: "rgba(102, 102, 102, 1)",
         pretoProfundo: "rgba(0, 0, 0, 1)",
         azulNoturno: "rgba(0, 0, 51, 1)",
-        marromTerra: "rgba(51, 25, 0, 1)"
+        marromTerra: "rgba(51, 25, 0, 1)",
+        // Cor para texto:
+        cinzaClaro: "rgba(204, 204, 204, 1)"
 
     }
 }

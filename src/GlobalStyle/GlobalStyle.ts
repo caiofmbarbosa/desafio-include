@@ -13,7 +13,6 @@ const GlobalStyle = createGlobalStyle`
     /* FONTE */
     font-family: "Montserrat", sans-serif;
     font-weight: 400;
-    font-optical-sizing: auto;
     font-style: normal;
 
     /* Cor do background */
