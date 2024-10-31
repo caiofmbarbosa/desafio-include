@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "title": "Por que eu escolhi a área de desenvolvimento web?",
+      "content": "Escolhi o desenvolvimento web porque gosto de criar interfaces interativas e resolver problemas complexos. É uma área que permite explorar minha criatividade enquanto aplico conhecimentos técnicos, e cada projeto é uma chance de aprender algo novo.",
+      "author": "Caio Barbosa",
+      "date": "31/10/2024",
+      "id": "c0ed"
+    },
+    {
+      "title": "Como a Include pode me ajudar no desenvolvimento profissional e pessoal?",
+      "content": "A Include oferece um ambiente de aprendizado contínuo e colaboração. Além de expandir minhas habilidades técnicas, espero desenvolver habilidades interpessoais, como comunicação e liderança, essenciais para o meu futuro profissional.",
+      "author": "Caio Barbosa",
+      "date": "31/10/2024",
+      "id": "ae4e"
+    },
+    {
+      "title": "Quais são os principais valores que eu acredito que são importantes para um ambiente colaborativo?",
+      "content": "Acredito que respeito, empatia e transparência são essenciais. Em um ambiente colaborativo, cada membro precisa sentir que é valorizado, que suas ideias são ouvidas e que todos estão comprometidos com o sucesso coletivo.",
+      "author": "Caio Barbosa",
+      "date": "31/10/2024",
+      "id": "bfc5"
+    }
+  ]
+}

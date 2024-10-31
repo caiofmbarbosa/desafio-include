@@ -28,19 +28,38 @@ const StyledContentSpan = styled.span`
 
 `;
 
-const StyledAuthorContent = styled.span`
+const StyledAuthorWrapper = styled.div`
     border-top: 1px solid ${themes.colors.vermelhoSangue};
+    width: 100%;
+    padding: .2rem 0 0 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: .3rem;
+
+`;
+
+const StyledAuthorContent = styled.span`
     padding-top: .5rem;
     width: 100%;
+    font-weight: 700;
+
+`;
+
+const StyledDataContent = styled.span`
+    font-weight: 700;
 
 `;
 
 function PostCard({post}: {post: PostInterface}) {
     return (
         <StyledPostWrapper>
-            <h2>{post.titulo}</h2>
-            <StyledContentSpan>{post.conteudo}</StyledContentSpan>
-            <StyledAuthorContent>- {post.autor}</StyledAuthorContent>
+            <h2>{post.title}</h2>
+            <StyledContentSpan>{post.content}</StyledContentSpan>
+            <StyledAuthorWrapper>
+                <StyledAuthorContent>- {post.author}</StyledAuthorContent>
+                <StyledDataContent>{post.date}</StyledDataContent>
+            </StyledAuthorWrapper>
         </StyledPostWrapper>
     )
 }

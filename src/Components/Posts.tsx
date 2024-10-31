@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import themes from "../Themes/Themes";
 import PostCard from "./PostCard";
+import utils from "../Utils/utils";
+import PostInterface from "../Interface/PostInterface";
+import { toast } from "react-toastify";
 
 const StyledNewPostWrapper = styled.div`
     color: white;
@@ -147,6 +150,15 @@ function Posts() {
     const [ content, setContent ] = useState("");
     const [ author, setAuthor ] = useState("");
 
+    const [ posts, setPosts ] = useState<PostInterface[]>([]);
+
+    useEffect(() => {
+        utils.fetchPosts()
+            .then(data => setPosts(data))
+            .catch(error => console.error(error));
+
+    }, []);
+
     const handleCreatingClick = () => {
         if (creating) {
             // Caso esteja no modo criação e o botão cancelar for pressionado, limpa os inputs e seta o estado inverso
@@ -164,32 +176,46 @@ function Posts() {
         
     };
 
-    const handleInputTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setTitle(event.target.value)
+    const handleInputTitle = (event: React.ChangeEvent<HTMLInputElement>) => setTitle(event.target.value);
 
-    };
+    const handleInputContent = (event: React.ChangeEvent<HTMLTextAreaElement>) => setContent(event.target.value);
 
-    const handleInputContent = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setContent(event.target.value)
+    const handleInputAuthor = (event: React.ChangeEvent<HTMLInputElement>) => setAuthor(event.target.value);
 
-    };
+    const handleSavePost = async () => {
+        const newPost: PostInterface = {
+            title,
+            content,
+            author,
+            date: new Date().toLocaleDateString('pt-br')
 
-    const handleInputAuthor = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setAuthor(event.target.value)
+        };
 
-    };
+        // Salvar post e atualizar o estado
+        try {
+            const savedPost = await utils.savePost(newPost);
+            if (savedPost) {
+                setPosts([...posts, savedPost]); // Adiciona o novo post ao array
 
-    const post = {
-        autor: "Caio",
-        conteudo: "Somente teste",
-        descricao: "Post de teste",
-        titulo: "TESTE"
+                setTitle("");
+                setContent("");
+                setAuthor("");
+                setCreating(false);
+
+                toast.success("Post criado com sucesso!");
+                
+            }
+        } catch (error) {
+            console.error("Erro ao salvar post:", error);
+            toast.error("Erro ao criar o post, tente novamente!");
+
+        }
     };
 
     return (
         <>
             <StyledNewPostWrapper>
-                <span style={{fontWeight: 700}}>Compartilhe conosco o seu pensamento!</span>
+                <span style={{fontWeight: 700}}>Compartilhe comigo o seu pensamento!</span>
                 {!creating && <StyledButton type="button" onClick={handleCreatingClick}>Criar novo post</StyledButton>}
 
                 {creating &&
@@ -224,15 +250,16 @@ function Posts() {
                             <StyledInput 
                                 id="author"
                                 type="text"
-                                required
                                 maxLength={30}
                                 placeholder="Digite o nome do autor"
                                 onChange={handleInputAuthor}
                                 value={author}
+                                autoComplete="name"
+                                required
                             />
                         </StyledLabel>
                         <StyledButtonWrapper>
-                            <StyledButton $secondary type="button">Salvar post</StyledButton>
+                            <StyledButton $secondary type="button" onClick={handleSavePost}>Salvar post</StyledButton>
                             <StyledButton $secondary type="button" onClick={handleCreatingClick}>Cancelar</StyledButton>
                         </StyledButtonWrapper>
                     </StyledCreatingWrapper>
@@ -240,9 +267,9 @@ function Posts() {
             </StyledNewPostWrapper>
 
             <StyledPostWrapper>
-                <PostCard post={post}/>
-                <PostCard post={post}/>
-                <PostCard post={post}/>
+                {posts.map((post, index) => (
+                    <PostCard key={index} post={post} />
+                ))}
             </StyledPostWrapper>
         </>
     )
